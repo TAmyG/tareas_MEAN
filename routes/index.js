@@ -46,4 +46,13 @@ router.put('/tarea/:id', function(req, res){
     })
 })
 
+//DELETE - eliminar tarea
+router.delete('/tarea/:id', function(req, res){
+    Tareas.findByIdAndRemove(req.params.id, function(err){
+        if(err)
+            res.send(err);
+        res.json({message: 'eliminado correctamente'})
+    })
+})
+
 module.exports = router;
